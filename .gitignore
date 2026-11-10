@@ -1,0 +1,27 @@
+# Віртуальне середовище Python
+.venv/
+venv/
+ENV/
+
+# Кеш Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Налаштування локальної бази даних (SQLite)
+db.sqlite3
+
+# Файли середовища та секретні ключі
+.env
+
+# Кеш та конфігурація редакторів кодів (PyCharm, VS Code)
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# Статичні файли, що генеруються автоматично (якщо потрібно)
+# staticfiles/

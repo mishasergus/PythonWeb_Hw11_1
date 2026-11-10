@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Parcel Tracker{% endblock %}
+
+{% block content %}
+    <h1>Track your parcels</h1>
+    <p>Find a parcel by its tracking number or browse all parcels.</p>
+    <form action="{% url 'project:parcel_list' %}" method="get">
+        <label for="tracking-number">Tracking number</label>
+        <input id="tracking-number" name="tracking_number" type="search" minlength="11" maxlength="14">
+        <button type="submit">Search</button>
+    </form>
+    <p><a href="{% url 'project:parcel_list' %}">Browse all parcels</a></p>
+{% endblock %}

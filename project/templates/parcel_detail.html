@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{{ parcel.name }} | Parcel Tracker{% endblock %}
+
+{% block content %}
+    <p><a href="{% url 'project:parcel_list' %}">&larr; All parcels</a></p>
+    <h1>{{ parcel.name }}</h1>
+    <dl>
+        <dt><strong>Tracking number</strong></dt>
+        <dd>{{ parcel.tracking_number }}</dd>
+        <dt><strong>Description</strong></dt>
+        <dd>{{ parcel.description|linebreaksbr }}</dd>
+        <dt><strong>Weight</strong></dt>
+        <dd>{{ parcel.weight }} kg</dd>
+    </dl>
+{% endblock %}

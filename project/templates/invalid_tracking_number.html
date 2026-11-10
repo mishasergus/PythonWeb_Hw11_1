@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block title %}Invalid tracking number | Parcel Tracker{% endblock %}
+
+{% block content %}
+    <h1>Invalid tracking number</h1>
+    <p>Tracking numbers must contain 11 to 14 characters. Please check the number and try again.</p>
+    <p><a href="{% url 'project:parcel_list' %}">Return to parcel search</a></p>
+{% endblock %}

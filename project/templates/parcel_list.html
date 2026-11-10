@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Parcels | Parcel Tracker{% endblock %}
+
+{% block content %}
+    <h1>Parcels</h1>
+    <form method="get">
+        <label for="tracking-number">Filter by tracking number</label>
+        <input id="tracking-number" name="tracking_number" type="search"
+               value="{{ request.GET.tracking_number }}" minlength="11" maxlength="14">
+        <button type="submit">Search</button>
+        {% if request.GET.tracking_number %}
+            <a href="{% url 'project:parcel_list' %}">Clear</a>
+        {% endif %}
+    </form>
+
+    {% if parcels %}
+        <table>
+            <thead>
+                <tr><th>Parcel</th><th>Tracking number</th><th>Weight</th></tr>
+            </thead>
+            <tbody>
+                {% for parcel in parcels %}
+                    <tr>
+                        <td><a href="{% url 'project:parcel_detail' parcel.id %}">{{ parcel.name }}</a></td>
+                        <td>{{ parcel.tracking_number }}</td>
+                        <td>{{ parcel.weight }} kg</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="muted">No parcels found.</p>
+    {% endif %}
+{% endblock %}
